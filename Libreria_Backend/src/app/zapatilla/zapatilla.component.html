@@ -1,0 +1,39 @@
+<h1>{{titulo}}</h1>
+<!-- mim 42 -->
+<span>llamo al arreglo zapatillas</span>
+<h2>{{zapatillas}}</h2>
+
+<h2>Zapatillas disonibles</h2>
+<ul>
+    <li *ngFor = "let deportiva of zapatillas">
+        <span *ngIf = "deportiva.stock">
+            {{deportiva.marca}} - {{deportiva.color}} 
+            {{deportiva.precio}} - {{deportiva.stock}}
+        </span>
+        <span *ngIf="deportiva.precio<200"
+            [style.background] = "deportiva.precio<200?'green':'orange'">
+            En oferta
+        </span>
+    
+    </li>
+</ul>
+<h2>Colores</h2>
+<input type="text" [(ngModel)]="color"> 
+<ul [ngSwitch] = "color" >
+    <li *ngSwitchCase="'red'">
+        El color es 
+        <span [ngStyle]="{'background':color}">rojo</span>
+    </li>
+    <li *ngSwitchCase="'green'">
+        El color es 
+        <span [ngStyle]="{'background':color}">verde</span>
+    </li>
+    <li *ngSwitchCase="'orange'">
+        El color es 
+        <span [ngStyle]="{'background':color}">naranja</span>
+    </li>
+    <li *ngSwitchCase="'black'">
+        El color es 
+        <span [ngStyle]="{'background':color}">negro</span>
+    </li>
+</ul>
